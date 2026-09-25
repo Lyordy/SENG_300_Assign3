@@ -17,13 +17,19 @@ public class CSV_Reader {
 			
 			while((line = br.readLine()) != null)
 			{
-				String[] fields = line.split(splitRegex);
+				String[] fields = line.split(splitRegex, -1);
 				
 				int book_id = Integer.parseInt(fields[0]);
 				String isbn = fields[5];
 				String authors = fields[7];
+
+				int year = 0;
+
+				if (!fields[8].trim().isEmpty()) {
+ 					year = (int) Double.parseDouble(fields[8]);
+				}
+				
 				String title = fields[10];
-				int year = (int) Double.parseDouble(fields[8]);
 				double avgRating = Double.parseDouble(fields[12]);
 				int ratingsCount = Integer.parseInt(fields[13]);
 				
