@@ -42,6 +42,69 @@ public class ArrayListBooks {
         return null;
     }
 
+ // Binary search by book ID
+ // The list must be sorted by book ID first
+ public Book binarySearchById(int id) {
+
+     int left = 0;
+     int right = books.size() - 1;
+
+     while (left <= right) {
+
+         int middle = (left + right) / 2;
+
+         Book middleBook = books.get(middle);
+
+         if (middleBook.getBookId() == id) {
+             return middleBook;
+         }
+
+         if (middleBook.getBookId() < id) {
+             left = middle + 1;
+         } else {
+             right = middle - 1;
+         }
+     }
+
+     return null;
+ }
+    
+//Binary search by ISBN
+//The list must be sorted by ISBN first
+public Book binarySearchByISBN(String isbn) {
+
+  int left = 0;
+  int right = books.size() - 1;
+
+  while (left <= right) {
+
+      int middle = (left + right) / 2;
+
+      Book middleBook = books.get(middle);
+
+      int comparison = middleBook.getIsbn().compareTo(isbn);
+
+      if (comparison == 0) {
+          return middleBook;
+      }
+
+      if (comparison < 0) {
+          left = middle + 1;
+      } else {
+          right = middle - 1;
+      }
+  }
+
+  return null;
+}
+ 
+	//Sort books by Book ID for binary search
+	public void sortByBookId() {
+		books.sort((book1, book2) ->
+		Integer.compare(book1.getBookId(), book2.getBookId())
+ );
+}
+
     // Search by ISBN
     public Book findByISBN(String isbn) {
         for (Book book : books) {

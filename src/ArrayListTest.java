@@ -50,6 +50,28 @@ public class ArrayListTest {
             System.out.println("ISBN was not found.");
         }
 
+        System.out.println("\nTesting binary search by Book ID:");
+
+        books.sortByBookId();
+
+        Book binaryBook = books.binarySearchById(1);
+
+        if (binaryBook != null) {
+            System.out.println("Found: " + binaryBook);
+        } else {
+            System.out.println("Book ID 1 was not found.");
+        }
+
+        System.out.println("\nTesting binary search by ISBN:");
+
+        Book binaryISBN = books.binarySearchByISBN("0439023483");
+
+        if (binaryISBN != null) {
+            System.out.println("Found: " + binaryISBN);
+        } else {
+            System.out.println("ISBN was not found.");
+        }
+        
         System.out.println("\nArrayList test finished.");
     }
 }
