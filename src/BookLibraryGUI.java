@@ -122,6 +122,7 @@ public class BookLibraryGUI extends JFrame {
 
         String[] columns = {
             "Book ID",
+            "ISBN",
             "Title",
             "Author(s)",
             "Publication Year",
@@ -683,6 +684,8 @@ public class BookLibraryGUI extends JFrame {
 
         } else {
 
+            arrayBooks.sortByISBN();
+
             found =
                 arrayBooks.binarySearchByISBN(
                     searchText
@@ -691,6 +694,7 @@ public class BookLibraryGUI extends JFrame {
             statusLabel.setText(
                 "ISBN search completed using ArrayList."
             );
+
         }
 
         tableModel.setRowCount(0);
@@ -970,6 +974,7 @@ public class BookLibraryGUI extends JFrame {
         tableModel.addRow(
             new Object[] {
                 book.getBookId(),
+                book.getIsbn(),
                 book.getTitle(),
                 book.getAuthors(),
                 book.getOriginalPublicationYear(),

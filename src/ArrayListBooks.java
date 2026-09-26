@@ -104,6 +104,12 @@ public Book binarySearchByISBN(String isbn) {
 		Integer.compare(book1.getBookId(), book2.getBookId())
  );
 }
+	
+	public void sortByISBN()
+	{
+	    books.sort((book1, book2) ->
+	        book1.getIsbn().compareTo(book2.getIsbn()));
+	}
 
     // Search by ISBN
     public Book findByISBN(String isbn) {
