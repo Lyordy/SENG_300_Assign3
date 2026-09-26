@@ -138,6 +138,38 @@ public class LinkedList {
 				current = current.next;
 			}
 		}
-		while(swapped);
+		while(swapped);}
+		
+		// Delete a book by Book ID
+		public boolean deleteById(int id)
+		{
+		    if (head == null)
+		    {
+		        return false;
+		    }
+
+		    // If the first book is the one being deleted
+		    if (head.data.getBookId() == id)
+		    {
+		        head = head.next;
+		        size--;
+		        return true;
+		    }
+
+		    Node current = head;
+
+		    while (current.next != null)
+		    {
+		        if (current.next.data.getBookId() == id)
+		        {
+		            current.next = current.next.next;
+		            size--;
+		            return true;
+		        }
+
+		        current = current.next;
+		    }
+
+		    return false;
 	}
 }

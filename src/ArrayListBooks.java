@@ -183,7 +183,21 @@ public Book binarySearchByISBN(String isbn) {
         } catch (IOException e) {
 
             System.out.println("Error loading books.csv: "
-                    + e.getMessage());
+                    + e.getMessage());}
         }
+        
+     // Delete a book by Book ID
+        public boolean deleteById(int id)
+        {
+            for (int i = 0; i < books.size(); i++)
+            {
+                if (books.get(i).getBookId() == id)
+                {
+                    books.remove(i);
+                    return true;
+                }
+            }
+
+            return false;
     }
 }
